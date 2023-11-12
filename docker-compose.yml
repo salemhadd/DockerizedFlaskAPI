@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  flask_app:
+    container_name: flask_app
+    image: salem/dockerized_flask_app:1.0.0
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - DB_URL=postgresql://admin:admin@flask_database:5432/admin
+    depends_on:
+      - flask_database
+  flask_database:
+    container_name: flask_database
+    image: postgres:12
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_USER=admin
+      - POSTGRES_DB=admin
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata: { }
