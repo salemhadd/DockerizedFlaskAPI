@@ -18,7 +18,7 @@ This project is a Flask API Application containerized with Docker, utilizing Pos
 2. **Navigate to the Project Directory**:
 
     ```bash
-    cd dockerized-flask-api
+    cd DockerizedFlaskAPI
     ```
 
 3. **Build and Run Docker Containers**:
